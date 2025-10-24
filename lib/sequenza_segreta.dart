@@ -12,6 +12,10 @@ class SequenzaSegreta extends StatefulWidget{
 
 class SequenzaSegretaState extends State<SequenzaSegreta>{
 
+  List<MaterialColor> getColoriDaIndovinare(){
+    return widget.listaColoriDaIndovinare;
+  }
+
   bool visible = false;
 
   void makeVisible(){

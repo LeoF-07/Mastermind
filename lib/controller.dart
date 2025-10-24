@@ -5,16 +5,18 @@ import 'package:mastermind/sequenze.dart';
 class Controller{
   final GlobalKey<SequenzeState> sequenzeStateKey;
   final GlobalKey<SequenzaSegretaState> sequenzaSegretaStateKey;
-  final List<MaterialColor> listaColoriDaIndovinare;
-  Controller({required this.sequenzeStateKey, required this.sequenzaSegretaStateKey, required this.listaColoriDaIndovinare});
+  Controller({required this.sequenzeStateKey, required this.sequenzaSegretaStateKey});
 
   int currentRow = 0;
   int currentCell = 0;
 
+  bool gameEnded = false;
+
   List<MaterialColor> listaColori = [];
+  late List<MaterialColor>? listaColoriDaIndovinare = sequenzaSegretaStateKey.currentState?.getColoriDaIndovinare();
 
   void addColour(MaterialColor colore){
-    if(currentCell > 3) return;
+    if(currentCell > 3 || gameEnded) return;
     sequenzeStateKey.currentState?.keysSequenzeState[currentRow].currentState?.keysColoriVuotiState[currentCell].currentState?.changeColour(colore);
     currentCell++;
     listaColori.add(colore);
@@ -23,7 +25,7 @@ class Controller{
   int countCorrectColors(){
     int coloriUguali = 0;
     for(int i = 0; i < 4; i++){
-      if(listaColoriDaIndovinare[i] == listaColori[i]) coloriUguali++;
+      if(listaColoriDaIndovinare?[i] == listaColori[i]) coloriUguali++;
     }
     return coloriUguali;
   }
@@ -33,20 +35,27 @@ class Controller{
     for(int i = 0; i < 4; i++){
       MaterialColor colore = listaColori[i];
       for(int j = 0; j < 4; j++){
-        if(colore == listaColoriDaIndovinare[j] && i != j) semiColors++;
+        if(colore == listaColoriDaIndovinare?[j] && i != j) semiColors++;
       }
     }
     return semiColors;
   }
 
   void checkCombination(){
-    if(currentCell != 4) return;
+    if(currentCell != 4 || gameEnded) return;
     int correctColors = countCorrectColors();
     int semiColors = countSemiColors();
 
     sequenzeStateKey.currentState?.keysSequenzeState[currentRow].currentState?.keyIndicatoriState.currentState?.updateIndicatori(correctColors, semiColors);
 
     if(correctColors == 4){
+      sequenzaSegretaStateKey.currentState?.makeVisible();
+      gameEnded = true;
+      return;
+    }
+
+    if(currentRow == 7){
+      gameEnded = true;
       sequenzaSegretaStateKey.currentState?.makeVisible();
       return;
     }

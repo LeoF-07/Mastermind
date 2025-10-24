@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:mastermind/controller.dart';
 import 'package:mastermind/pulsante_verifica.dart';
@@ -37,18 +39,40 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Key key = UniqueKey();
+
+  List<MaterialColor> listaColori = [Colors.red, Colors.orange, Colors.blue, Colors.green, Colors.yellow, Colors.purple];
+  late List<MaterialColor> listaColoriDaIndovinare;
+
+  void restart(){
+    setState(() {
+      List<MaterialColor> copia = [Colors.red, Colors.orange, Colors.blue, Colors.green, Colors.yellow, Colors.purple];
+      listaColoriDaIndovinare = [];
+      for(int i = 0; i < 4; i++){
+        int i = Random().nextInt(copia.length);
+        listaColoriDaIndovinare.add(copia[i]);
+        copia.removeAt(i);
+      }
+      key = UniqueKey();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     final GlobalKey<SequenzeState> sequenzeStateKey = GlobalKey<SequenzeState>();
     final GlobalKey<SequenzaSegretaState> sequenzaSegretaStateKey = GlobalKey<SequenzaSegretaState>();
 
-    List<MaterialColor> listaColoriDaIndovinare = [Colors.red, Colors.orange, Colors.blue, Colors.green];
-    Controller controller = Controller(sequenzeStateKey: sequenzeStateKey, sequenzaSegretaStateKey: sequenzaSegretaStateKey, listaColoriDaIndovinare: listaColoriDaIndovinare);
+    Controller controller = Controller(sequenzeStateKey: sequenzeStateKey, sequenzaSegretaStateKey: sequenzaSegretaStateKey);
 
 
-    List<MaterialColor> listaColori = [Colors.red, Colors.orange, Colors.blue, Colors.green, Colors.yellow, Colors.purple];
+    List<MaterialColor> copia = [Colors.red, Colors.orange, Colors.blue, Colors.green, Colors.yellow, Colors.purple];
 
+    listaColoriDaIndovinare = [];
+    for(int i = 0; i < 4; i++){
+      int i = Random().nextInt(copia.length);
+      listaColoriDaIndovinare.add(copia[i]);
+      copia.removeAt(i);
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -57,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
+          key: key,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(padding: EdgeInsets.only(bottom: 40), child: SequenzaSegreta(key: sequenzaSegretaStateKey, listaColoriDaIndovinare: listaColoriDaIndovinare)),
@@ -76,9 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {  },
+        onPressed: restart,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const Icon(IconData(0xe523, fontFamily: 'MaterialIcons')),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
