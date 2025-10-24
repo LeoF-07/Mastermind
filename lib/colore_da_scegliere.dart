@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'controller.dart';
+
 class ColoreDaScegliere extends StatefulWidget{
+  final Controller controller;
   final MaterialColor colore;
-  const ColoreDaScegliere({super.key, required this.colore});
+  const ColoreDaScegliere({super.key, required this.colore, required this.controller});
 
   @override
   State<StatefulWidget> createState() => ColoreDaScegliereState();
 }
 
 class ColoreDaScegliereState extends State<ColoreDaScegliere>{
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,11 +23,12 @@ class ColoreDaScegliereState extends State<ColoreDaScegliere>{
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(color: Colors.black, width: 2),
-            color: widget.colore
           ),
           child: ClipOval(
-            child: Center(
-              child: Text('', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            child: RawMaterialButton(
+              onPressed: () => widget.controller.addColour(widget.colore),
+              fillColor: widget.colore,
+              elevation: 4,
             ),
           ),
         )

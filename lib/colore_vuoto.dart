@@ -9,6 +9,14 @@ class ColoreVuoto extends StatefulWidget{
 }
 
 class ColoreVuotoState extends State<ColoreVuoto>{
+  Color colore = Colors.transparent;
+
+  void changeColour(MaterialColor colore){
+    setState(() {
+      this.colore = colore;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,6 +27,7 @@ class ColoreVuotoState extends State<ColoreVuoto>{
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(color: Colors.black, width: 2),
+            color: colore,
           ),
           child: ClipOval(
             child: Center(

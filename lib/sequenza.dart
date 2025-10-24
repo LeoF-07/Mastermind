@@ -12,11 +12,14 @@ class Sequenza extends StatefulWidget{
 }
 
 class SequenzaState extends State<Sequenza>{
+  List<GlobalKey<ColoreVuotoState>> keysColoriVuotiState = [];
+
   @override
   Widget build(BuildContext context) {
     List<ColoreVuoto>? listaColoriVuoti = [];
     for(int i = 0; i < 4; i++){
-      listaColoriVuoti.add(ColoreVuoto(id: i));
+      keysColoriVuotiState.add(GlobalKey<ColoreVuotoState>());
+      listaColoriVuoti.add(ColoreVuoto(key: keysColoriVuotiState[i], id: i));
     }
 
     return Row(

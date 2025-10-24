@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mastermind/controller.dart';
 import 'package:mastermind/pulsante_verifica.dart';
 import 'package:mastermind/sequenza_segreta.dart';
 import 'package:mastermind/sequenze.dart';
@@ -38,6 +39,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<SequenzeState> sequenzeStateKey = GlobalKey<SequenzeState>();
+    Controller controller = Controller(sequenzeStateKey: sequenzeStateKey);
+
+
     List<MaterialColor> listaColori = [Colors.red, Colors.orange, Colors.blue, Colors.green, Colors.yellow, Colors.purple];
 
     return Scaffold(
@@ -53,10 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.only(right: 20), child: Sequenze()),
+                Padding(padding: EdgeInsets.only(right: 20), child: Sequenze(key: sequenzeStateKey)),
                 Column(
                   children: [
-                    ColonnaColori(listaColori: listaColori),
+                    ColonnaColori(listaColori: listaColori, controller: controller),
                     Padding(padding: EdgeInsets.only(top: 20), child: PulsanteVerifica())
                   ]
                 )

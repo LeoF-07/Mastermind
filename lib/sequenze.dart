@@ -10,12 +10,14 @@ class Sequenze extends StatefulWidget{
 }
 
 class SequenzeState extends State<Sequenze>{
+  List<Sequenza> sequenze = [];
+  List<GlobalKey<SequenzaState>> keysSequenzeState = [];
 
   @override
   Widget build(BuildContext context) {
-    List<Sequenza> sequenze = [];
     for(int i = 0; i < widget.numberOfSequences; i++){
-      sequenze.add(Sequenza(id: i + 1));
+      keysSequenzeState.add(GlobalKey<SequenzaState>());
+      sequenze.add(Sequenza(key: keysSequenzeState[i], id: i + 1));
     }
 
     return Column(children: sequenze);
