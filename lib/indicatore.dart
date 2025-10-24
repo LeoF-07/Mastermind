@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Indicatore extends StatefulWidget{
-  const Indicatore({super.key});
+  final Color colore;
+  const Indicatore({super.key, required this.colore});
 
   @override
   State<StatefulWidget> createState() => IndicatoreState();
@@ -18,13 +19,9 @@ class IndicatoreState extends State<Indicatore>{
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(color: Colors.black, width: 2),
+            color: widget.colore,
           ),
-          child: ClipOval(
-            child: Center(
-              child: Text('',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            ),
-          ),
+          child: ClipOval()
         )
     );
   }

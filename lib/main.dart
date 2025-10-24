@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mastermind/controller.dart';
 import 'package:mastermind/pulsante_verifica.dart';
+import 'package:mastermind/sequenza.dart';
 import 'package:mastermind/sequenza_segreta.dart';
 import 'package:mastermind/sequenze.dart';
 
@@ -40,10 +41,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<SequenzeState> sequenzeStateKey = GlobalKey<SequenzeState>();
-    Controller controller = Controller(sequenzeStateKey: sequenzeStateKey);
+    final GlobalKey<SequenzaSegretaState> sequenzaSegretaStateKey = GlobalKey<SequenzaSegretaState>();
+
+    List<MaterialColor> listaColoriDaIndovinare = [Colors.red, Colors.orange, Colors.blue, Colors.green];
+    Controller controller = Controller(sequenzeStateKey: sequenzeStateKey, sequenzaSegretaStateKey: sequenzaSegretaStateKey, listaColoriDaIndovinare: listaColoriDaIndovinare);
 
 
     List<MaterialColor> listaColori = [Colors.red, Colors.orange, Colors.blue, Colors.green, Colors.yellow, Colors.purple];
+
 
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(padding: EdgeInsets.only(bottom: 40), child: SequenzaSegreta()),
+            Padding(padding: EdgeInsets.only(bottom: 40), child: SequenzaSegreta(key: sequenzaSegretaStateKey, listaColoriDaIndovinare: listaColoriDaIndovinare)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -62,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   children: [
                     ColonnaColori(listaColori: listaColori, controller: controller),
-                    Padding(padding: EdgeInsets.only(top: 20), child: PulsanteVerifica())
+                    Padding(padding: EdgeInsets.only(top: 20), child: PulsanteVerifica(controller: controller))
                   ]
                 )
               ],

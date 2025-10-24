@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'controller.dart';
+
 class PulsanteVerifica extends StatefulWidget{
-  const PulsanteVerifica({super.key});
+  final Controller controller;
+  const PulsanteVerifica({super.key, required this.controller});
 
   @override
   State<StatefulWidget> createState() => PulsanteVerificaState();
@@ -9,17 +12,13 @@ class PulsanteVerifica extends StatefulWidget{
 
 class PulsanteVerificaState extends State<PulsanteVerifica>{
 
-  void doSomething(){
-
-  }
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 50,
       height: 50,
       child: RawMaterialButton(
-        onPressed: doSomething,
+        onPressed: () => widget.controller.checkCombination(),
         fillColor: Colors.black,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 4,

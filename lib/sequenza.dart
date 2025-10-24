@@ -13,6 +13,7 @@ class Sequenza extends StatefulWidget{
 
 class SequenzaState extends State<Sequenza>{
   List<GlobalKey<ColoreVuotoState>> keysColoriVuotiState = [];
+  GlobalKey<IndicatoriState> keyIndicatoriState = GlobalKey<IndicatoriState>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class SequenzaState extends State<Sequenza>{
           Row(
             children: listaColoriVuoti,
           ),
-          Indicatori()
+          Indicatori(key: keyIndicatoriState)
       ]
     );
   }
