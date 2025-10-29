@@ -25,7 +25,7 @@ class ColoreIgnotoState extends State<ColoreIgnoto>{
           child: ClipOval(
             child: Center(
               //child: Text(widget.visible ? '' : '?', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              child: Icon(widget.visible ? IconData(0xe1f6, fontFamily: 'MaterialIcons') : IconData(0xf0555, fontFamily: 'MaterialIcons'))
+              child: Icon(widget.visible ? const IconData(0xe1f6, fontFamily: 'MaterialIcons') : const IconData(0xf0555, fontFamily: 'MaterialIcons'))
             ),
           ),
         )

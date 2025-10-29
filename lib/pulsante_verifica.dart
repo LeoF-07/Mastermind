@@ -22,7 +22,7 @@ class PulsanteVerificaState extends State<PulsanteVerifica>{
         fillColor: Colors.black,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 4,
-        child: Icon(IconData(0xe1f6, fontFamily: 'MaterialIcons'), size: 28, color: Colors.white),
+        child: Icon(const IconData(0xe1f6, fontFamily: 'MaterialIcons'), size: 28, color: Colors.white),
       ),
     );
   }
