@@ -5,6 +5,9 @@ Hai a disposizione 8 tentativi per indovinare una sequenza segreta di 4 colori. 
 a destra e premi il pulsante nero con la spunta per verificare la sequenza. I 4 cerchietti a destra dei tentativi sono degli indicatori che
 ti guideranno alla vittoria. Una volta premuto il pulsante verifica, essi si riempiranno di rosso in base a quanti
 colori hai indovinato e sono nella posizione giusta, mentre di blu se non sono nella posizione giusta.
+Finita la partita, puoi iniziarne una nuova premendo sul pulsante verde in basso a destra.
+
+![Esempio](screenshots/example.jpg)
 
 ## Scelte di sviluppo
 Il codice del progetto è suddiviso in numerose classi in modo da aumentarne la leggibilità.
@@ -43,5 +46,5 @@ Può essere anche scaricato direttamente dal Menù di Android Studio nella sezio
 Trasferendo l'apk su un dispositivo Android potrà essere scaricato e l'applicazione sarà pronta all'uso.
 
 
-# Autore
+## Autore
 Leonardo Fortin
