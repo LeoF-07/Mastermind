@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'controller.dart';
 
+/// Pulsante verifica per verificare che la Sequenza inserita sia corretta
 class PulsanteVerifica extends StatefulWidget{
   final Controller controller;
   const PulsanteVerifica({super.key, required this.controller});

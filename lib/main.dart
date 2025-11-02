@@ -1,13 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+
 import 'package:mastermind/controller.dart';
 import 'package:mastermind/pulsante_verifica.dart';
-import 'package:mastermind/sequenza.dart';
 import 'package:mastermind/sequenza_segreta.dart';
 import 'package:mastermind/sequenze.dart';
-
-import 'colonna_colori.dart';
+import 'package:mastermind/colonna_colori.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,17 +41,20 @@ class _MyHomePageState extends State<MyHomePage> {
   Key key = UniqueKey();
 
   List<MaterialColor> listaColori = [Colors.red, Colors.orange, Colors.blue, Colors.green, Colors.yellow, Colors.purple];
-  late List<MaterialColor> listaColoriDaIndovinare;
+  List<MaterialColor> listaColoriDaIndovinare = [];
+
+  void generaSequenzaSegreta(){
+    List<MaterialColor> copia = List.from(listaColori);
+    listaColoriDaIndovinare = [];
+    for(int i = 0; i < 4; i++){
+      int i = Random().nextInt(copia.length);
+      listaColoriDaIndovinare.add(copia[i]);
+      copia.removeAt(i);
+    }
+  }
 
   void restart(){
     setState(() {
-      List<MaterialColor> copia = [Colors.red, Colors.orange, Colors.blue, Colors.green, Colors.yellow, Colors.purple];
-      listaColoriDaIndovinare = [];
-      for(int i = 0; i < 4; i++){
-        int i = Random().nextInt(copia.length);
-        listaColoriDaIndovinare.add(copia[i]);
-        copia.removeAt(i);
-      }
       key = UniqueKey();
     });
   }
@@ -65,14 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
     Controller controller = Controller(sequenzeStateKey: sequenzeStateKey, sequenzaSegretaStateKey: sequenzaSegretaStateKey);
 
 
-    List<MaterialColor> copia = [Colors.red, Colors.orange, Colors.blue, Colors.green, Colors.yellow, Colors.purple];
+    generaSequenzaSegreta();
 
-    listaColoriDaIndovinare = [];
-    for(int i = 0; i < 4; i++){
-      int i = Random().nextInt(copia.length);
-      listaColoriDaIndovinare.add(copia[i]);
-      copia.removeAt(i);
-    }
 
     return Scaffold(
       appBar: AppBar(

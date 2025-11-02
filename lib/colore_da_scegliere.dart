@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'controller.dart';
 
+/// ColoreDaScegliere dall'utente contenuto nella ColonnaColori
 class ColoreDaScegliere extends StatefulWidget{
   final Controller controller;
   final MaterialColor colore;
@@ -24,7 +25,7 @@ class ColoreDaScegliereState extends State<ColoreDaScegliere>{
             shape: BoxShape.circle,
             border: Border.all(color: Colors.black, width: 2),
           ),
-          child: ClipOval(
+          child: ClipOval( // Rende circolare il child del container
             child: RawMaterialButton(
               onPressed: () => widget.controller.addColour(widget.colore),
               fillColor: widget.colore,

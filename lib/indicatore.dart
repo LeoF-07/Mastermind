@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Indicatore che diventa rosso se si indovinano colori nella posizione giusta e di blu se non sono nella posizione giusta
 class Indicatore extends StatefulWidget{
   final Color colore;
   const Indicatore({super.key, required this.colore});

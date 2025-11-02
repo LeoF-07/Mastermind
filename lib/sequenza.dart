@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'colore_vuoto.dart';
 import 'indicatori.dart';
 
+/// Sequenza che contiene i ColoriVuoti che l'utente riempira con i ColoriDaScegliere dalla ColonnaColori
 class Sequenza extends StatefulWidget{
   final int id;
   const Sequenza({super.key, required this.id});

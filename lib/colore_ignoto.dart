@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// ColoreIgnoto della SequenzaSegreta. La sua visibilià rimane a false finché non si vince o si perde
 class ColoreIgnoto extends StatefulWidget{
   final MaterialColor colore;
   final bool visible;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// ColoreVuoto di una Sequenza, verrà riempito dal colore scelto dall'utente dalla ColonnaColori
 class ColoreVuoto extends StatefulWidget{
   final int id;
   const ColoreVuoto({super.key, required this.id});

@@ -12,7 +12,7 @@ Il codice del progetto è suddiviso in numerose classi in modo da aumentarne la 
 I colori che comporranno le sequenze tentate vengono scelti dall'utente dall'apposita colonna verticale
 di colori a destra. Questo rende l'insieme di colori più facilmente visualizzabile e più rapida la loro selezione
 La logica di funzionamento è gestita dall'apposita classe Controller in modo da separarla al meglio dalle componenti grafiche
-e dal codice per gestirle
+e dal codice per gestirle.
 
 ## Requisiti
 - Flutter SDK
@@ -38,9 +38,9 @@ Per generare l'apk è sufficiente questo comando da digitare nel prompt dei coma
 ```bash
 flutter build apk --release
 ```
-Può essere anche scaricato direttamente dal Menù di Android Studio nella sezione Build
+Può essere anche scaricato direttamente dal Menù di Android Studio nella sezione Build.
 
-Trasferendo l'apk su un dispositivo Android potrà essere scaricato e l'applicazione sarà pronta all'uso
+Trasferendo l'apk su un dispositivo Android potrà essere scaricato e l'applicazione sarà pronta all'uso.
 
 
 # Autore

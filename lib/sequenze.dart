@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mastermind/sequenza.dart';
 
+/// Sequenza, ossia i tentativi che l'utente ha per inserire una Sequenza e indovinare la SequenzaSegreta
 class Sequenze extends StatefulWidget{
   final int numberOfSequences;
   const Sequenze({super.key, this.numberOfSequences = 8});

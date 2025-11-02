@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'colore_ignoto.dart';
 
+/// SequenzaSegreta, contiene una lista di quattro ColoriIgnoti
 class SequenzaSegreta extends StatefulWidget{
   final List<MaterialColor> listaColoriDaIndovinare;
   const SequenzaSegreta({super.key, required this.listaColoriDaIndovinare});

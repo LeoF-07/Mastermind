@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mastermind/sequenza_segreta.dart';
 import 'package:mastermind/sequenze.dart';
 
+/// Controller che gestisce la logica di funzionamento del gioco
 class Controller{
   final GlobalKey<SequenzeState> sequenzeStateKey;
   final GlobalKey<SequenzaSegretaState> sequenzaSegretaStateKey;

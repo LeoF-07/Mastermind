@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'indicatore.dart';
 
+/// Indicatori a destra delle Sequenze, contengono ciascuno quattro Indicatori
 class Indicatori extends StatefulWidget{
   const Indicatori({super.key});
 

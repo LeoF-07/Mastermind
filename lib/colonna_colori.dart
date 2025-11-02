@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'colore_da_scegliere.dart';
 import 'controller.dart';
 
+/// ColonnaColori che contiene i ColoriDaScegliere dall'utente
 class ColonnaColori extends StatefulWidget{
   final List<MaterialColor> listaColori;
   final Controller controller;
