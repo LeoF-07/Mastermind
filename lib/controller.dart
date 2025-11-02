@@ -49,14 +49,14 @@ class Controller{
     sequenzeStateKey.currentState?.keysSequenzeState[currentRow].currentState?.keyIndicatoriState.currentState?.updateIndicatori(correctColors, semiColors);
 
     if(correctColors == 4){
-      sequenzaSegretaStateKey.currentState?.makeVisible();
+      sequenzaSegretaStateKey.currentState?.makeVisible(true);
       gameEnded = true;
       return;
     }
 
     if(currentRow == 7){
       gameEnded = true;
-      sequenzaSegretaStateKey.currentState?.makeVisible();
+      sequenzaSegretaStateKey.currentState?.makeVisible(false);
       return;
     }
 

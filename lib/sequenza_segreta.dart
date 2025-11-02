@@ -17,10 +17,12 @@ class SequenzaSegretaState extends State<SequenzaSegreta>{
   }
 
   bool visible = false;
+  bool win = false;
 
-  void makeVisible(){
+  void makeVisible(bool win){
     setState((){
       visible = true;
+      this.win = win;
     });
   }
 
@@ -28,7 +30,7 @@ class SequenzaSegretaState extends State<SequenzaSegreta>{
   Widget build(BuildContext context) {
     List<ColoreIgnoto>? listaColoriIgnoti = [];
     for(int i = 0; i < 4; i++){
-      listaColoriIgnoti.add(ColoreIgnoto(colore: widget.listaColoriDaIndovinare[i], visible: visible));
+      listaColoriIgnoti.add(ColoreIgnoto(colore: widget.listaColoriDaIndovinare[i], visible: visible, win: win));
     }
 
     return Row(
