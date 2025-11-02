@@ -1,13 +1,13 @@
 # Mastermind
 
-Mastermind Mobile.
+<div style="display: flex">
+<div>
+<p style="margin-right: 30">Mastermind Mobile.
 Hai a disposizione 8 tentativi per indovinare una sequenza segreta di 4 colori. Scegli i colori dalla colonna
 a destra e premi il pulsante nero con la spunta per verificare la sequenza. I 4 cerchietti a destra dei tentativi sono degli indicatori che
 ti guideranno alla vittoria. Una volta premuto il pulsante verifica, essi si riempiranno di rosso in base a quanti
 colori hai indovinato e sono nella posizione giusta, mentre di blu se non sono nella posizione giusta.
-Finita la partita, puoi iniziarne una nuova premendo sul pulsante verde in basso a destra.
-
-![Esempio](screenshots/example.jpg)
+Finita la partita, puoi iniziarne una nuova premendo sul pulsante verde in basso a destra.</p>
 
 ## Scelte di sviluppo
 Il codice del progetto è suddiviso in numerose classi in modo da aumentarne la leggibilità.
@@ -16,6 +16,10 @@ I colori che comporranno le sequenze tentate vengono scelti dall'utente dall'app
 di colori a destra. Questo rende l'insieme di colori più facilmente visualizzabile e più rapida la loro selezione
 La logica di funzionamento è gestita dall'apposita classe Controller in modo da separarla al meglio dalle componenti grafiche
 e dal codice per gestirle.
+</div>
+
+<img src="screenshots/example.jpg" alt="Esempio" width="150">
+</div>
 
 ## Requisiti
 - Flutter SDK
