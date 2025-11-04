@@ -37,7 +37,7 @@ Questa applicazione funziona per i dispositivi Android.
 git clone https://github.com/LeoF-07/Mastermind.git
 ```
 
-Se i [requisiti](#Requisiti) sono rispettati sarà possibile modificare il progetto con Android Studio o Visual Studio Code ed emularlo.
+Se i [Requisiti](#Requisiti) sono rispettati sarà possibile modificare il progetto con Android Studio o Visual Studio Code ed emularlo.
 
 
 ## Emulazione dell'applicazione
