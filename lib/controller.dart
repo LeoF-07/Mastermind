@@ -23,19 +23,34 @@ class Controller{
     listaColori.add(colore);
   }
 
+  
+  List<MaterialColor> exactColors = [];
+
+
   int countCorrectColors(){
     int coloriUguali = 0;
     for(int i = 0; i < 4; i++){
-      if(listaColoriDaIndovinare?[i] == listaColori[i]) coloriUguali++;
+      if(listaColoriDaIndovinare?[i] == listaColori[i]) {
+        coloriUguali++;
+        exactColors.add(listaColori[i]);
+      }
     }
     return coloriUguali;
   }
 
   int countSemiColors(){
     int semiColors = 0;
+    bool alreadyCounted = false;
+
     for(int i = 0; i < 4; i++){
       MaterialColor colore = listaColori[i];
-      for(int j = 0; j < 4; j++){
+      alreadyCounted = false;
+      for(MaterialColor c in exactColors){
+        if(colore == c){
+          alreadyCounted = true;
+        }
+      }
+      for(int j = 0; j < 4 && !alreadyCounted; j++){
         if(colore == listaColoriDaIndovinare?[j] && i != j) semiColors++;
       }
     }
@@ -44,6 +59,8 @@ class Controller{
 
   void checkCombination(){
     if(currentCell != 4 || gameEnded) return;
+    exactColors.clear();
+
     int correctColors = countCorrectColors();
     int semiColors = countSemiColors();
 
